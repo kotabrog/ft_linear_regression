@@ -13,10 +13,10 @@ class LinearRegression:
     def _train_one(self, x, y):
         # xとyのサイズのerror処理.
         # x, yがサイズ0のときのerror処理
-        self.theta0, self.theta1 = (self.theta0 - self.learning_rate * (sum([self.predict(mileage) for mileage in x]) - sum(y)) / len(x),
-                                    self.theta1 - self.learning_rate * sum([(self.predict(mileage) - price) * mileage for mileage, price in zip(x, y)]) / len(x))
-        # self.theta0, self.theta1 = (self.learning_rate * (sum([self.predict(mileage) for mileage in x]) - sum(y)) / len(x),
-        #                             self.learning_rate * sum([(self.predict(mileage) - price) * mileage for mileage, price in zip(x, y)]) / len(x))
+        # self.theta0, self.theta1 = (self.theta0 - self.learning_rate * (sum([self.predict(mileage) for mileage in x]) - sum(y)) / len(x),
+        #                             self.theta1 - self.learning_rate * sum([(self.predict(mileage) - price) * mileage for mileage, price in zip(x, y)]) / len(x))
+        self.theta0, self.theta1 = (self.learning_rate * (sum([self.predict(mileage) for mileage in x]) - sum(y)) / len(x),
+                                    self.learning_rate * sum([(self.predict(mileage) - price) * mileage for mileage, price in zip(x, y)]) / len(x))
 
     def train(self, x, y, epoch=1, verbose=False):
         # x, y, epochのerror処理
