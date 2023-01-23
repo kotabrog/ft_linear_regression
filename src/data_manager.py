@@ -12,7 +12,7 @@ class DataManager:
         if len(self.data.columns) != 2 or (self.data.columns != ['km', 'price']).any():
             raise RuntimeError("data.columns != ['km', 'price']")
         self.data.km = pd.to_numeric(self.data.km, errors='coerce')
-        self.data.price = pd.to_numeric(self.data.km, errors='coerce')
+        self.data.price = pd.to_numeric(self.data.price, errors='coerce')
         if not all(self.data.km.notna()) or not all(self.data.price.notna()) :
             raise RuntimeError("non-numeric items in the data.")
 
