@@ -3,9 +3,14 @@ import pandas as pd
 import numpy as np
 
 import linear_regression
+import data_manager
 
 if __name__ == '__main__':
-    data = pd.read_csv('../data.csv')
+    # data = pd.read_csv('../data.csv')
+    data_manager = data_manager.DataManager()
+    # data_manager.genarate_data(3, -2, -10, 10, sigma=1.0, num=20)
+    data_manager.genarate_data(1000, 30, -1000, 1000, sigma=100.0, num=200)
+    data = data_manager.data
     print(data)
 
     x = data.km
@@ -30,10 +35,10 @@ if __name__ == '__main__':
     # x_l = np.linspace(x_min, x_max, 100)
     # plt.plot(x_l, model.predict(x_l), 'b:')
 
-    model.train(x, y, epoch=1000, verbose=True)
+    model.train(x, y, epoch=10000, verbose=False)
 
     x_l = np.linspace(x_min, x_max, 100)
-    plt.plot(x_l, model.predict(x_l), 'r:', label="my model")
+    plt.plot(x_l, model.predict(x_l), 'r-', label="my model")
 
     # model.train(x, y, epoch=100)
 
