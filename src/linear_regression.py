@@ -6,7 +6,6 @@ class LinearRegression:
         self.theta0 = theta0
         self.theta1 = theta1
         self.learning_rate = learning_rate
-        print(learning_rate)
 
 
     def predict(self, mileage):
