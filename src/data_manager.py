@@ -17,7 +17,7 @@ class DataManager:
             raise RuntimeError("non-numeric items in the data.")
 
 
-    def genarate_data(self, theta0, theta1, x_min, x_max, sigma=10.0, num=10, seed=42):
+    def generate_data(self, theta0, theta1, x_min, x_max, sigma=10.0, num=10, seed=42):
         random.seed(seed)
         x = [random.uniform(x_min, x_max) for _ in range(num)]
         y = [theta0 + (theta1 * a) + random.gauss(mu=0.0, sigma=sigma) for a in x]

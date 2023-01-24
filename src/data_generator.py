@@ -18,5 +18,5 @@ if __name__ == '__main__':
     print(args)
 
     data = data_manager.DataManager()
-    data.genarate_data(args.theta0, args.theta1, args.x_min, args.x_max, args.sigma, args.num, args.seed)
+    data.generate_data(args.theta0, args.theta1, args.x_min, args.x_max, args.sigma, args.num, args.seed)
     data.to_csv(args.output_name)
